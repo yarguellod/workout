@@ -165,8 +165,8 @@
 
     <div class="tabs">
         <div class="tab active" onclick="showTab('exercises')">📖 Exercises</div>
-        <div class="tab" onclick="showTab('thisweek')">📅 This Week</div>
-        <div class="tab" onclick="showTab('calendar')">🗓️ Calendar</div>
+        <div class="tab" onclick="showTab('weekly')">📅 Weekly Plans</div>
+        <div class="tab" onclick="showTab('calendar')">🗓️ Overview</div>
     </div>
 
     <!-- EXERCISES TAB -->
@@ -395,134 +395,252 @@
         </div>
     </div>
 
-    <!-- THIS WEEK TAB -->
-    <div id="thisweek" class="content">
-        <h2>This Week: Oct 14-20, 2025</h2>
-        
-        <div class="success">
-            <strong>Your Phase:</strong> Cycle Days 11-17 (Follicular → Ovulation)<br>
-            <strong>Energy:</strong> HIGH - Peak performance window!<br>
-            <strong>🔥 Wed Oct 16 = OVULATION PEAK!</strong>
-        </div>
+    <!-- WEEKLY PLANS TAB -->
+    <div id="weekly" class="content">
+        <h2>12-Week Training Plans with Checkboxes</h2>
 
-        <h3>Daily Non-Negotiable Morning Routine (EVERY DAY)</h3>
         <div class="note">
-            Do this even on rest days, even during period. This is what fixes your tight muscles!
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="morning1">
-            <label for="morning1">Pike pulses: 2 x 20 reps</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="morning2">
-            <label for="morning2">Pike compressions: 5 x 5 sec holds</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="morning3">
-            <label for="morning3">Standing pike: 10 slow reps</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="morning4">
-            <label for="morning4">Elevated L-sit: 5 x 10 sec</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="morning5">
-            <label for="morning5">Push-up to down dog: 10 reps</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="morning6">
-            <label for="morning6">Hollow hold: 3 x 20 sec</label>
+            <strong>📋 How to use this:</strong><br>
+            • Each week has a complete daily checklist<br>
+            • Morning routine is EVERY DAY (even rest days)<br>
+            • Exercises progress week by week<br>
+            • Check off as you complete each item<br>
+            • Your progress saves automatically in your browser
         </div>
 
-        <h3>Monday, Oct 14 - FULL TRAINING</h3>
-        <div class="note"><strong>Press to Handstand:</strong></div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon1">
-            <label for="mon1">Wall handstand: 4 x 30 sec</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon2">
-            <label for="mon2">Pike push-ups: 4 x 7 reps</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon3">
-            <label for="mon3">Plank to pike: 4 x 10 reps</label>
-        </div>
-
-        <div class="note"><strong>Toes to Bar:</strong></div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon4">
-            <label for="mon4">Hanging knee raises: 4 x 8 reps</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon5">
-            <label for="mon5">Lying leg raises: 4 x 10 reps</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon6">
-            <label for="mon6">Hollow hold: 4 x 25 sec</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon7">
-            <label for="mon7">Dead hang: 3 x 40 sec</label>
+        <!-- Week selector buttons -->
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
+            <button class="tab" onclick="showWeek(1)" id="week-btn-1">Week 1</button>
+            <button class="tab" onclick="showWeek(2)" id="week-btn-2">Week 2</button>
+            <button class="tab" onclick="showWeek(3)" id="week-btn-3">Week 3</button>
+            <button class="tab" onclick="showWeek(4)" id="week-btn-4">Week 4</button>
+            <button class="tab" onclick="showWeek(5)" id="week-btn-5">Week 5</button>
+            <button class="tab" onclick="showWeek(6)" id="week-btn-6">Week 6</button>
+            <button class="tab" onclick="showWeek(7)" id="week-btn-7">Week 7</button>
+            <button class="tab" onclick="showWeek(8)" id="week-btn-8">Week 8</button>
+            <button class="tab" onclick="showWeek(9)" id="week-btn-9">Week 9</button>
+            <button class="tab" onclick="showWeek(10)" id="week-btn-10">Week 10</button>
+            <button class="tab" onclick="showWeek(11)" id="week-btn-11">Week 11</button>
+            <button class="tab" onclick="showWeek(12)" id="week-btn-12">Week 12</button>
         </div>
 
-        <div class="note"><strong>Pistol Squats:</strong></div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon8">
-            <label for="mon8">Box pistols: 4 x 7 per leg</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon9">
-            <label for="mon9">Single-leg RDLs: 4 x 8 per leg</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="mon10">
-            <label for="mon10">Goblet squats: 3 x 10 reps</label>
+        <!-- WEEK 1: Oct 14-20 -->
+        <div id="week-1" class="week-content" style="display: block;">
+            <h3>Week 1: Oct 14-20 (CD 11-17) - Follicular Peak</h3>
+            <div class="success">
+                <strong>Phase:</strong> Follicular → Ovulation<br>
+                <strong>Energy:</strong> HIGH - Peak performance window!<br>
+                <strong>🔥 Wed Oct 16 = OVULATION PEAK!</strong>
+            </div>
+
+            <h4>Daily Morning Routine (Every Day This Week)</h4>
+            <div class="note">Do this EVERY DAY - even on rest days!</div>
+            <div class="checkbox"><input type="checkbox" id="w1-morning-mon"><label for="w1-morning-mon">Monday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-morning-tue"><label for="w1-morning-tue">Tuesday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-morning-wed"><label for="w1-morning-wed">Wednesday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-morning-thu"><label for="w1-morning-thu">Thursday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-morning-fri"><label for="w1-morning-fri">Friday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-morning-sat"><label for="w1-morning-sat">Saturday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-morning-sun"><label for="w1-morning-sun">Sunday: Morning routine ✓</label></div>
+
+            <details style="margin: 10px 0; padding: 10px; background: #2d3436; border-radius: 5px;">
+                <summary style="cursor: pointer; color: #b8c480; font-weight: bold;">View Morning Routine Details</summary>
+                <div style="margin-top: 10px;">
+                    • Pike pulses: 2 x 20 reps<br>
+                    • Pike compressions: 5 x 5 sec holds<br>
+                    • Standing pike: 10 slow reps<br>
+                    • Elevated L-sit: 5 x 10 sec<br>
+                    • Push-up to down dog: 10 reps<br>
+                    • Hollow hold: 3 x 20 sec
+                </div>
+            </details>
+
+            <h4>Monday, Oct 14 - Full Training</h4>
+            <div class="note"><strong>Press to Handstand:</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-1"><label for="w1-mon-1">Wall handstand: 4 x 30 sec</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-2"><label for="w1-mon-2">Pike push-ups: 4 x 6 reps</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-3"><label for="w1-mon-3">Plank to pike: 4 x 8 reps</label></div>
+            <div class="note"><strong>Toes to Bar:</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-4"><label for="w1-mon-4">Hanging knee raises: 4 x 6 reps + 3s hold</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-5"><label for="w1-mon-5">Lying leg raises: 4 x 8 reps</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-6"><label for="w1-mon-6">Hollow hold: 4 x 20 sec</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-7"><label for="w1-mon-7">Dead hang: 3 x 30 sec</label></div>
+            <div class="note"><strong>Pistol Squats:</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-8"><label for="w1-mon-8">Box pistols (high box): 4 x 6 per leg</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-9"><label for="w1-mon-9">Single-leg RDLs: 4 x 8 per leg</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-10"><label for="w1-mon-10">Deep goblet squats: 3 x 10 reps</label></div>
+
+            <h4>Tuesday, Oct 15 - Active Recovery</h4>
+            <div class="checkbox"><input type="checkbox" id="w1-tue-1"><label for="w1-tue-1">Easy walk or bike: 20 min</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-tue-2"><label for="w1-tue-2">Gentle yoga or stretching: 15 min</label></div>
+
+            <h4>Wednesday, Oct 16 - 🔥 OVULATION PEAK!</h4>
+            <div class="warning"><strong>YOUR BEST DAY!</strong> Test limits, go for PRs, film yourself!</div>
+            <div class="checkbox"><input type="checkbox" id="w1-wed-1"><label for="w1-wed-1">🎥 BEST PRESS ATTEMPTS: 8-10 tries</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-wed-2"><label for="w1-wed-2">Max handstand hold: 3 attempts</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-wed-3"><label for="w1-wed-3">🎥 MAX TOES TO BAR: Get as high as you can</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-wed-4"><label for="w1-wed-4">🎥 DEEPEST PISTOLS: 4 x 6 per leg</label></div>
+
+            <h4>Thursday, Oct 17 - Flexibility Focus</h4>
+            <div class="checkbox"><input type="checkbox" id="w1-thu-1"><label for="w1-thu-1">Deep squat hold: 2 min total</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-thu-2"><label for="w1-thu-2">90/90 hip stretches: 1 min per side</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-thu-3"><label for="w1-thu-3">Cossack squats: 10 per side</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-thu-4"><label for="w1-thu-4">Wall ankle mobilization: 15 per ankle</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-thu-5"><label for="w1-thu-5">Extended pike work: 15 min</label></div>
+
+            <h4>Friday, Oct 18 - Full Training</h4>
+            <div class="note"><strong>Press to Handstand:</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-1"><label for="w1-fri-1">Wall handstand: 4 x 30 sec</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-2"><label for="w1-fri-2">Pike push-ups: 4 x 6 reps</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-3"><label for="w1-fri-3">Plank to pike: 4 x 8 reps</label></div>
+            <div class="note"><strong>Toes to Bar:</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-4"><label for="w1-fri-4">Hanging knee raises: 4 x 6 reps + 3s hold</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-5"><label for="w1-fri-5">Lying leg raises: 4 x 8 reps</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-6"><label for="w1-fri-6">Dead hang: 3 x 30 sec</label></div>
+            <div class="note"><strong>Pistol Squats:</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-7"><label for="w1-fri-7">Box pistols (high box): 4 x 6 per leg</label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-8"><label for="w1-fri-8">Single-leg RDLs: 4 x 8 per leg</label></div>
+
+            <h4>Saturday, Oct 19 - Active Recovery</h4>
+            <div class="checkbox"><input type="checkbox" id="w1-sat-1"><label for="w1-sat-1">Light walk, swim, or yoga: 30-40 min</label></div>
+
+            <h4>Sunday, Oct 20 - REST</h4>
+            <div class="checkbox"><input type="checkbox" id="w1-sun-1"><label for="w1-sun-1">Complete rest or gentle movement only</label></div>
         </div>
 
-        <h3>Tuesday, Oct 15 - ACTIVE RECOVERY</h3>
-        <div class="checkbox">
-            <input type="checkbox" id="tue1">
-            <label for="tue1">Easy walk or bike: 20 min</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="tue2">
-            <label for="tue2">Gentle yoga: 10 min</label>
+        <!-- WEEK 2: Oct 21-27 -->
+        <div id="week-2" class="week-content" style="display: none;">
+            <h3>Week 2: Oct 21-27 (CD 18-24) - Early Luteal DELOAD</h3>
+            <div class="note">
+                <strong>Phase:</strong> Early Luteal - Time to consolidate gains<br>
+                <strong>Energy:</strong> Moderate - Reduce intensity to 70%<br>
+                <strong>Focus:</strong> Perfect form, less volume
+            </div>
+
+            <h4>Daily Morning Routine (Every Day This Week)</h4>
+            <div class="checkbox"><input type="checkbox" id="w2-morning-mon"><label for="w2-morning-mon">Monday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-morning-tue"><label for="w2-morning-tue">Tuesday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-morning-wed"><label for="w2-morning-wed">Wednesday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-morning-thu"><label for="w2-morning-thu">Thursday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-morning-fri"><label for="w2-morning-fri">Friday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-morning-sat"><label for="w2-morning-sat">Saturday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-morning-sun"><label for="w2-morning-sun">Sunday: Morning routine ✓</label></div>
+
+            <h4>Mon-Wed: Moderate Training (70% intensity)</h4>
+            <div class="note">Reduce to 3 sets instead of 4</div>
+            <div class="checkbox"><input type="checkbox" id="w2-mod-1"><label for="w2-mod-1">Wall handstand: 3 x 25 sec</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-mod-2"><label for="w2-mod-2">Pike push-ups: 3 x 5 reps</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-mod-3"><label for="w2-mod-3">Hanging knee raises: 3 x 5 reps</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-mod-4"><label for="w2-mod-4">Box pistols: 3 x 5 per leg</label></div>
+
+            <h4>Thursday: Flexibility Day</h4>
+            <div class="checkbox"><input type="checkbox" id="w2-thu-1"><label for="w2-thu-1">Extended mobility session: 45 min</label></div>
+
+            <h4>Fri-Sun: Deload / Rest</h4>
+            <div class="checkbox"><input type="checkbox" id="w2-fri-1"><label for="w2-fri-1">Friday: Light technique work only (60%)</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-sat-1"><label for="w2-sat-1">Saturday: Gentle yoga or walk</label></div>
+            <div class="checkbox"><input type="checkbox" id="w2-sun-1"><label for="w2-sun-1">Sunday: Complete rest</label></div>
         </div>
 
-        <h3>Wednesday, Oct 16 - 🔥 OVULATION PEAK!</h3>
-        <div class="warning">
-            <strong>YOUR BEST DAY!</strong> Test limits, go for PRs, film yourself!
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="wed1">
-            <label for="wed1">🎥 BEST PRESS ATTEMPTS: 8-10 tries</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="wed2">
-            <label for="wed2">Max handstand hold: 3 attempts</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="wed3">
-            <label for="wed3">🎥 MAX TOES TO BAR: 3 sets</label>
-        </div>
-        <div class="checkbox">
-            <input type="checkbox" id="wed4">
-            <label for="wed4">🎥 DEEPEST PISTOLS: 4 x 8 per leg</label>
+        <!-- WEEK 3: Oct 28-Nov 3 -->
+        <div id="week-3" class="week-content" style="display: none;">
+            <h3>Week 3: Oct 28-Nov 3 (CD 25-2) - Late Luteal → Menstrual</h3>
+            <div class="warning">
+                <strong>Phase:</strong> Period week<br>
+                <strong>Energy:</strong> LOW - Honor your body<br>
+                <strong>Focus:</strong> Technique only, NO max efforts
+            </div>
+
+            <h4>Daily Morning Routine (Every Day - Keep consistency!)</h4>
+            <div class="checkbox"><input type="checkbox" id="w3-morning-mon"><label for="w3-morning-mon">Monday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-morning-tue"><label for="w3-morning-tue">Tuesday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-morning-wed"><label for="w3-morning-wed">Wednesday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-morning-thu"><label for="w3-morning-thu">Thursday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-morning-fri"><label for="w3-morning-fri">Friday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-morning-sat"><label for="w3-morning-sat">Saturday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-morning-sun"><label for="w3-morning-sun">Sunday: Morning routine ✓</label></div>
+
+            <h4>Mon-Thu: Technique Practice</h4>
+            <div class="checkbox"><input type="checkbox" id="w3-tech-1"><label for="w3-tech-1">Practice hollow holds: 3 x 15 sec</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-tech-2"><label for="w3-tech-2">Deep squat holds: 2 min total</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-tech-3"><label for="w3-tech-3">Form practice (no max effort)</label></div>
+
+            <h4>Fri-Sun: Rest & Recovery</h4>
+            <div class="checkbox"><input type="checkbox" id="w3-fri-1"><label for="w3-fri-1">Friday: Gentle yoga only</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-sat-1"><label for="w3-sat-1">Saturday: Light walk if you feel like it</label></div>
+            <div class="checkbox"><input type="checkbox" id="w3-sun-1"><label for="w3-sun-1">Sunday: Rest</label></div>
         </div>
 
-        <h3>Thursday, Oct 17 - FLEXIBILITY FOCUS</h3>
-        <p>Recovery after peak day. Extended flexibility session (45 min).</p>
+        <!-- WEEK 4: Nov 4-10 -->
+        <div id="week-4" class="week-content" style="display: none;">
+            <h3>Week 4: Nov 4-10 (CD 3-9) - Menstrual → Follicular Rebuild</h3>
+            <div class="success">
+                <strong>Phase:</strong> Energy returning!<br>
+                <strong>Intensity:</strong> Start at 50-60%, build to 80% by weekend<br>
+                <strong>Focus:</strong> Gradual rebuild
+            </div>
 
-        <h3>Friday, Oct 18 - FULL TRAINING</h3>
-        <p>Back to regular training with slightly lower energy (early luteal phase).</p>
+            <h4>Daily Morning Routine (Every Day)</h4>
+            <div class="checkbox"><input type="checkbox" id="w4-morning-mon"><label for="w4-morning-mon">Monday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-morning-tue"><label for="w4-morning-tue">Tuesday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-morning-wed"><label for="w4-morning-wed">Wednesday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-morning-thu"><label for="w4-morning-thu">Thursday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-morning-fri"><label for="w4-morning-fri">Friday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-morning-sat"><label for="w4-morning-sat">Saturday: Morning routine ✓</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-morning-sun"><label for="w4-morning-sun">Sunday: Morning routine ✓</label></div>
 
-        <h3>Saturday, Oct 19 - ACTIVE RECOVERY</h3>
-        <p>Light activity: walk, swim, or yoga for 30-40 min.</p>
+            <h4>Mon-Wed: Light Training (50-60%)</h4>
+            <div class="checkbox"><input type="checkbox" id="w4-light-1"><label for="w4-light-1">Wall handstand: 3 x 20 sec</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-light-2"><label for="w4-light-2">Pike push-ups: 3 x 4 reps</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-light-3"><label for="w4-light-3">Hanging knee raises: 3 x 5 reps</label></div>
 
-        <h3>Sunday, Oct 20 - REST</h3>
-        <p>Complete rest or gentle movement only.</p>
+            <h4>Thu: Energy Returns!</h4>
+            <div class="checkbox"><input type="checkbox" id="w4-thu-1"><label for="w4-thu-1">Flexibility session: 45 min</label></div>
+
+            <h4>Fri-Sat: Back to Full Training</h4>
+            <div class="note"><strong>PROGRESSION: Increase reps!</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w4-fri-1"><label for="w4-fri-1">Wall handstand: 4 x 35 sec</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-fri-2"><label for="w4-fri-2">Pike push-ups: 4 x 7 reps</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-fri-3"><label for="w4-fri-3">Hanging knee raises: 4 x 7 reps</label></div>
+            <div class="checkbox"><input type="checkbox" id="w4-fri-4"><label for="w4-fri-4">Box pistols (medium box): 4 x 6 per leg</label></div>
+
+            <h4>Sunday: Recovery</h4>
+            <div class="checkbox"><input type="checkbox" id="w4-sun-1"><label for="w4-sun-1">Light activity or rest</label></div>
+        </div>
+
+        <!-- Placeholder for Weeks 5-12 -->
+        <div id="week-5" class="week-content" style="display: none;">
+            <h3>Week 5: Nov 11-17 - COMING SOON</h3>
+            <p>Full details for weeks 5-12 will be added. For now, refer to the Overview tab for general guidance.</p>
+        </div>
+        <div id="week-6" class="week-content" style="display: none;">
+            <h3>Week 6: Nov 18-24 - COMING SOON</h3>
+            <p>Full details for weeks 5-12 will be added. For now, refer to the Overview tab for general guidance.</p>
+        </div>
+        <div id="week-7" class="week-content" style="display: none;">
+            <h3>Week 7: Nov 25-Dec 1 - COMING SOON</h3>
+            <p>Full details for weeks 5-12 will be added. For now, refer to the Overview tab for general guidance.</p>
+        </div>
+        <div id="week-8" class="week-content" style="display: none;">
+            <h3>Week 8: Dec 2-8 - COMING SOON</h3>
+            <p>Full details for weeks 5-12 will be added. For now, refer to the Overview tab for general guidance.</p>
+        </div>
+        <div id="week-9" class="week-content" style="display: none;">
+            <h3>Week 9: Dec 9-15 - COMING SOON</h3>
+            <p>Full details for weeks 5-12 will be added. For now, refer to the Overview tab for general guidance.</p>
+        </div>
+        <div id="week-10" class="week-content" style="display: none;">
+            <h3>Week 10: Dec 16-22 - COMING SOON</h3>
+            <p>Full details for weeks 5-12 will be added. For now, refer to the Overview tab for general guidance.</p>
+        </div>
+        <div id="week-11" class="week-content" style="display: none;">
+            <h3>Week 11: Dec 23-29 - COMING SOON</h3>
+            <p>Full details for weeks 5-12 will be added. For now, refer to the Overview tab for general guidance.</p>
+        </div>
+        <div id="week-12" class="week-content" style="display: none;">
+            <h3>Week 12: Dec 30-Jan 5 - COMING SOON</h3>
+            <p>Full details for weeks 5-12 will be added. For now, refer to the Overview tab for general guidance.</p>
+        </div>
     </div>
 
     <!-- CALENDAR TAB -->
@@ -899,11 +1017,30 @@
         function toggleExercise(id) {
             const el = document.getElementById(id);
             el.classList.toggle('show');
-            
+
             const h3 = el.previousElementSibling;
-            h3.textContent = h3.textContent.includes('▼') ? 
-                h3.textContent.replace('▼', '▲') : 
+            h3.textContent = h3.textContent.includes('▼') ?
+                h3.textContent.replace('▼', '▲') :
                 h3.textContent.replace('▲', '▼');
+        }
+
+        function showWeek(weekNum) {
+            // Hide all weeks
+            document.querySelectorAll('.week-content').forEach(w => w.style.display = 'none');
+
+            // Remove active class from all week buttons
+            for (let i = 1; i <= 12; i++) {
+                const btn = document.getElementById(`week-btn-${i}`);
+                if (btn) btn.classList.remove('active');
+            }
+
+            // Show selected week
+            const selectedWeek = document.getElementById(`week-${weekNum}`);
+            if (selectedWeek) selectedWeek.style.display = 'block';
+
+            // Highlight selected button
+            const selectedBtn = document.getElementById(`week-btn-${weekNum}`);
+            if (selectedBtn) selectedBtn.classList.add('active');
         }
 
         // Save checkboxes
