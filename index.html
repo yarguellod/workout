@@ -161,13 +161,19 @@
     </style>
 </head>
 <body>
-    <h1>🐿️ Calisthenics Weekly Plan 🐝</h1>
-    <p style="text-align: center; color: #880e4f;">October & November 2025</p>
+    <div style="text-align: right; padding: 10px;">
+        <button onclick="toggleLanguage()" id="lang-toggle" style="padding: 8px 15px; background: #566e3d; border: 2px solid #b8c480; color: #fff; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 0.9em;">
+            🌐 Español
+        </button>
+    </div>
+
+    <h1 data-en="🐿️ Calisthenics Weekly Plan 🐝" data-es="🐿️ Plan Semanal de Calistenia 🐝">🐿️ Calisthenics Weekly Plan 🐝</h1>
+    <p style="text-align: center; color: #880e4f;" data-en="October & November 2025" data-es="Octubre y Noviembre 2025">October & November 2025</p>
 
     <div class="tabs">
-        <div class="tab active" onclick="showTab('exercises')">📖 Exercises</div>
-        <div class="tab" onclick="showTab('weekly')">📅 Weekly Plans</div>
-        <div class="tab" onclick="showTab('calendar')">🗓️ Overview</div>
+        <div class="tab active" onclick="showTab('exercises')" data-en="📖 Exercises" data-es="📖 Ejercicios">📖 Exercises</div>
+        <div class="tab" onclick="showTab('weekly')" data-en="📅 Weekly Plans" data-es="📅 Planes Semanales">📅 Weekly Plans</div>
+        <div class="tab" onclick="showTab('calendar')" data-en="🗓️ Overview" data-es="🗓️ Resumen">🗓️ Overview</div>
     </div>
 
     <!-- EXERCISES TAB -->
@@ -411,28 +417,65 @@
 
         <!-- MORNING ROUTINE CONSISTENCY TRACKER -->
         <div class="success" style="margin: 20px 0;">
-            <h3>📅 Morning Routine Consistency Tracker</h3>
-            <p><strong>Track every day you complete the morning routine!</strong> This helps measure your consistency across all 12 weeks.</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 15px;">
-                <div style="background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;">
-                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
-                    <input type="date" id="routine-log-1" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+            <h3>📅 Morning Routine Tracker</h3>
+            <p><strong>Log each day you complete the morning routine.</strong> Check the box and add the date to track your consistency!</p>
+
+            <details open style="margin: 10px 0; padding: 10px; background: #2d3436; border-radius: 5px; border: 2px solid #566e3d;">
+                <summary style="cursor: pointer; color: #b8c480; font-weight: bold; font-size: 1.1em;">Morning Routine Exercises (Do EVERY DAY)</summary>
+                <div style="margin-top: 10px; padding: 10px; background: #1a1a1a; border-radius: 3px;">
+                    • Pike pulses: 2 x 20 reps<br>
+                    • Pike compressions: 5 x 5 sec holds<br>
+                    • Standing pike: 10 slow reps<br>
+                    • Elevated L-sit: 5 x 10 sec<br>
+                    • Push-up to down dog: 10 reps<br>
+                    • Hollow hold: 3 x 20 sec
                 </div>
-                <div style="background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;">
-                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
-                    <input type="date" id="routine-log-2" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+            </details>
+
+            <div id="routine-log-container" style="margin-top: 15px;">
+                <div class="routine-entry" style="display: flex; align-items: center; gap: 10px; margin: 8px 0; padding: 10px; background: #1a1a1a; border-radius: 5px; border-left: 4px solid #7d8e63;">
+                    <input type="checkbox" id="routine-check-1" class="routine-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #566e3d;">
+                    <input type="date" id="routine-date-1" class="routine-date" style="flex: 1; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 8px; border-radius: 3px; font-size: 1em;">
+                    <span class="routine-status" style="color: #7d8e63; font-size: 0.9em;">Not completed</span>
                 </div>
-                <div style="background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;">
-                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
-                    <input type="date" id="routine-log-3" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+                <div class="routine-entry" style="display: flex; align-items: center; gap: 10px; margin: 8px 0; padding: 10px; background: #1a1a1a; border-radius: 5px; border-left: 4px solid #7d8e63;">
+                    <input type="checkbox" id="routine-check-2" class="routine-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #566e3d;">
+                    <input type="date" id="routine-date-2" class="routine-date" style="flex: 1; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 8px; border-radius: 3px; font-size: 1em;">
+                    <span class="routine-status" style="color: #7d8e63; font-size: 0.9em;">Not completed</span>
                 </div>
-                <div style="background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;">
-                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
-                    <input type="date" id="routine-log-4" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+                <div class="routine-entry" style="display: flex; align-items: center; gap: 10px; margin: 8px 0; padding: 10px; background: #1a1a1a; border-radius: 5px; border-left: 4px solid #7d8e63;">
+                    <input type="checkbox" id="routine-check-3" class="routine-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #566e3d;">
+                    <input type="date" id="routine-date-3" class="routine-date" style="flex: 1; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 8px; border-radius: 3px; font-size: 1em;">
+                    <span class="routine-status" style="color: #7d8e63; font-size: 0.9em;">Not completed</span>
+                </div>
+                <div class="routine-entry" style="display: flex; align-items: center; gap: 10px; margin: 8px 0; padding: 10px; background: #1a1a1a; border-radius: 5px; border-left: 4px solid #7d8e63;">
+                    <input type="checkbox" id="routine-check-4" class="routine-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #566e3d;">
+                    <input type="date" id="routine-date-4" class="routine-date" style="flex: 1; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 8px; border-radius: 3px; font-size: 1em;">
+                    <span class="routine-status" style="color: #7d8e63; font-size: 0.9em;">Not completed</span>
+                </div>
+                <div class="routine-entry" style="display: flex; align-items: center; gap: 10px; margin: 8px 0; padding: 10px; background: #1a1a1a; border-radius: 5px; border-left: 4px solid #7d8e63;">
+                    <input type="checkbox" id="routine-check-5" class="routine-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #566e3d;">
+                    <input type="date" id="routine-date-5" class="routine-date" style="flex: 1; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 8px; border-radius: 3px; font-size: 1em;">
+                    <span class="routine-status" style="color: #7d8e63; font-size: 0.9em;">Not completed</span>
+                </div>
+                <div class="routine-entry" style="display: flex; align-items: center; gap: 10px; margin: 8px 0; padding: 10px; background: #1a1a1a; border-radius: 5px; border-left: 4px solid #7d8e63;">
+                    <input type="checkbox" id="routine-check-6" class="routine-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #566e3d;">
+                    <input type="date" id="routine-date-6" class="routine-date" style="flex: 1; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 8px; border-radius: 3px; font-size: 1em;">
+                    <span class="routine-status" style="color: #7d8e63; font-size: 0.9em;">Not completed</span>
+                </div>
+                <div class="routine-entry" style="display: flex; align-items: center; gap: 10px; margin: 8px 0; padding: 10px; background: #1a1a1a; border-radius: 5px; border-left: 4px solid #7d8e63;">
+                    <input type="checkbox" id="routine-check-7" class="routine-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #566e3d;">
+                    <input type="date" id="routine-date-7" class="routine-date" style="flex: 1; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 8px; border-radius: 3px; font-size: 1em;">
+                    <span class="routine-status" style="color: #7d8e63; font-size: 0.9em;">Not completed</span>
                 </div>
             </div>
-            <p style="margin-top: 15px; font-size: 0.9em;"><strong>Consistency Counter:</strong> <span id="routine-counter" style="color: #b8c480; font-size: 1.2em; font-weight: bold;">0</span> days completed</p>
-            <button onclick="addMoreDateFields()" style="margin-top: 10px; padding: 8px 15px; background: #566e3d; border: none; color: #fff; border-radius: 3px; cursor: pointer; font-weight: bold;">+ Add More Date Fields</button>
+
+            <button onclick="addMoreRoutineEntries()" style="margin-top: 15px; padding: 10px 20px; background: #566e3d; border: none; color: #fff; border-radius: 3px; cursor: pointer; font-weight: bold; font-size: 1em;">+ Add More Days</button>
+
+            <p style="margin-top: 20px; padding: 15px; background: #2d3436; border-radius: 5px; border-left: 4px solid #b8c480;">
+                <strong style="font-size: 1.1em;">Consistency Stats:</strong><br>
+                <span style="font-size: 1.5em; color: #b8c480; font-weight: bold;" id="routine-counter">0</span> <span style="color: #ecf0f1;">days completed</span>
+            </p>
         </div>
 
         <!-- Week selector buttons -->
@@ -1138,6 +1181,22 @@
     </div>
 
     <script>
+        // Language toggle
+        let currentLang = 'en';
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            const button = document.getElementById('lang-toggle');
+            button.textContent = currentLang === 'en' ? '🌐 Español' : '🌐 English';
+
+            // Update all elements with data-en and data-es attributes
+            document.querySelectorAll('[data-en][data-es]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${currentLang}`);
+            });
+
+            // Save preference
+            localStorage.setItem('language', currentLang);
+        }
+
         function showTab(tabId) {
             // Hide all content
             document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
@@ -1177,37 +1236,72 @@
             if (selectedBtn) selectedBtn.classList.add('active');
         }
 
-        // Add more date fields for consistency tracking
-        let dateFieldCount = 4;
-        function addMoreDateFields() {
-            const container = document.querySelector('.success div[style*="grid"]');
-            for (let i = 0; i < 4; i++) {
-                dateFieldCount++;
-                const newField = document.createElement('div');
-                newField.style.cssText = 'background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;';
-                newField.innerHTML = `
-                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
-                    <input type="date" id="routine-log-${dateFieldCount}" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+        // Add more routine entries
+        let routineEntryCount = 7;
+        function addMoreRoutineEntries() {
+            const container = document.getElementById('routine-log-container');
+            for (let i = 0; i < 5; i++) {
+                routineEntryCount++;
+                const newEntry = document.createElement('div');
+                newEntry.className = 'routine-entry';
+                newEntry.style.cssText = 'display: flex; align-items: center; gap: 10px; margin: 8px 0; padding: 10px; background: #1a1a1a; border-radius: 5px; border-left: 4px solid #7d8e63;';
+                newEntry.innerHTML = `
+                    <input type="checkbox" id="routine-check-${routineEntryCount}" class="routine-checkbox" style="width: 20px; height: 20px; cursor: pointer; accent-color: #566e3d;">
+                    <input type="date" id="routine-date-${routineEntryCount}" class="routine-date" style="flex: 1; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 8px; border-radius: 3px; font-size: 1em;">
+                    <span class="routine-status" style="color: #7d8e63; font-size: 0.9em;">Not completed</span>
                 `;
-                container.appendChild(newField);
+                container.appendChild(newEntry);
             }
             updateConsistencyCounter();
         }
 
+        // Update status text based on checkbox
+        function updateRoutineStatus(entry) {
+            const checkbox = entry.querySelector('.routine-checkbox');
+            const dateInput = entry.querySelector('.routine-date');
+            const status = entry.querySelector('.routine-status');
+
+            if (checkbox.checked && dateInput.value) {
+                status.textContent = '✓ Completed';
+                status.style.color = '#27ae60';
+                entry.style.borderLeftColor = '#27ae60';
+            } else if (checkbox.checked) {
+                status.textContent = 'Add date';
+                status.style.color = '#e67e22';
+                entry.style.borderLeftColor = '#e67e22';
+            } else {
+                status.textContent = 'Not completed';
+                status.style.color = '#7d8e63';
+                entry.style.borderLeftColor = '#7d8e63';
+            }
+        }
+
         // Update consistency counter
         function updateConsistencyCounter() {
-            const filledDates = Array.from(document.querySelectorAll('.routine-date'))
-                .filter(input => input.value !== '').length;
-            document.getElementById('routine-counter').textContent = filledDates;
+            const completed = Array.from(document.querySelectorAll('.routine-checkbox'))
+                .filter((cb, i) => {
+                    const dateInput = document.getElementById(cb.id.replace('check', 'date'));
+                    return cb.checked && dateInput && dateInput.value;
+                }).length;
+            document.getElementById('routine-counter').textContent = completed;
         }
 
         // Save checkboxes and dates
         document.addEventListener('change', e => {
             if (e.target.type === 'checkbox') {
                 localStorage.setItem(e.target.id, e.target.checked);
+                // Update status for routine checkboxes
+                if (e.target.classList.contains('routine-checkbox')) {
+                    const entry = e.target.closest('.routine-entry');
+                    if (entry) updateRoutineStatus(entry);
+                    updateConsistencyCounter();
+                }
             } else if (e.target.type === 'date') {
                 localStorage.setItem(e.target.id, e.target.value);
+                // Update status for routine dates
                 if (e.target.classList.contains('routine-date')) {
+                    const entry = e.target.closest('.routine-entry');
+                    if (entry) updateRoutineStatus(entry);
                     updateConsistencyCounter();
                 }
             }
@@ -1226,7 +1320,17 @@
                     dateInput.value = savedDate;
                 }
             });
+            // Update all routine entry statuses
+            document.querySelectorAll('.routine-entry').forEach(entry => {
+                updateRoutineStatus(entry);
+            });
             updateConsistencyCounter();
+
+            // Load saved language preference
+            const savedLang = localStorage.getItem('language');
+            if (savedLang && savedLang !== currentLang) {
+                toggleLanguage();
+            }
         });
     </script>
 </body>
