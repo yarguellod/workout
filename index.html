@@ -258,8 +258,7 @@
         <div class="exercise">
             <h3 onclick="toggleExercise('plank-pike')">Plank to Pike ▼</h3>
             <div id="plank-pike" class="exercise-details">
-                <img src="https://i.imgur.com/YqLqXzR.gif" alt="
-                k to Pike" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="https://i.imgur.com/YqLqXzR.gif" alt="Plank to Pike" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="img-placeholder" style="display:none;">⚡ DYNAMIC</div>
                 <p><strong>How to:</strong> Start in plank position. Push hips up high into pike position (like upside-down V). Return to plank. Keep legs as straight as possible. Builds compression strength and shoulder mobility. Focus on controlled movement.</p>
                 <p><strong>Reps:</strong> 4 x 8-10 reps</p>
@@ -410,6 +409,32 @@
             • Your progress saves automatically in your browser
         </div>
 
+        <!-- MORNING ROUTINE CONSISTENCY TRACKER -->
+        <div class="success" style="margin: 20px 0;">
+            <h3>📅 Morning Routine Consistency Tracker</h3>
+            <p><strong>Track every day you complete the morning routine!</strong> This helps measure your consistency across all 12 weeks.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 15px;">
+                <div style="background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;">
+                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
+                    <input type="date" id="routine-log-1" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+                </div>
+                <div style="background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;">
+                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
+                    <input type="date" id="routine-log-2" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+                </div>
+                <div style="background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;">
+                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
+                    <input type="date" id="routine-log-3" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+                </div>
+                <div style="background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;">
+                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
+                    <input type="date" id="routine-log-4" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9em;"><strong>Consistency Counter:</strong> <span id="routine-counter" style="color: #b8c480; font-size: 1.2em; font-weight: bold;">0</span> days completed</p>
+            <button onclick="addMoreDateFields()" style="margin-top: 10px; padding: 8px 15px; background: #566e3d; border: none; color: #fff; border-radius: 3px; cursor: pointer; font-weight: bold;">+ Add More Date Fields</button>
+        </div>
+
         <!-- Week selector buttons -->
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
             <button class="tab" onclick="showWeek(1)" id="week-btn-1">Week 1</button>
@@ -436,14 +461,42 @@
             </div>
 
             <h4>Daily Morning Routine (Every Day This Week)</h4>
-            <div class="note">Do this EVERY DAY - even on rest days!</div>
-            <div class="checkbox"><input type="checkbox" id="w1-morning-mon"><label for="w1-morning-mon">Monday: Morning routine ✓</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-morning-tue"><label for="w1-morning-tue">Tuesday: Morning routine ✓</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-morning-wed"><label for="w1-morning-wed">Wednesday: Morning routine ✓</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-morning-thu"><label for="w1-morning-thu">Thursday: Morning routine ✓</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-morning-fri"><label for="w1-morning-fri">Friday: Morning routine ✓</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-morning-sat"><label for="w1-morning-sat">Saturday: Morning routine ✓</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-morning-sun"><label for="w1-morning-sun">Sunday: Morning routine ✓</label></div>
+            <div class="note">Do this EVERY DAY - even on rest days! Log the date when you complete it to track consistency.</div>
+            <div class="checkbox">
+                <input type="checkbox" id="w1-morning-mon">
+                <label for="w1-morning-mon">Monday: Morning routine ✓</label>
+                <input type="date" id="w1-morning-mon-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="w1-morning-tue">
+                <label for="w1-morning-tue">Tuesday: Morning routine ✓</label>
+                <input type="date" id="w1-morning-tue-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="w1-morning-wed">
+                <label for="w1-morning-wed">Wednesday: Morning routine ✓</label>
+                <input type="date" id="w1-morning-wed-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="w1-morning-thu">
+                <label for="w1-morning-thu">Thursday: Morning routine ✓</label>
+                <input type="date" id="w1-morning-thu-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="w1-morning-fri">
+                <label for="w1-morning-fri">Friday: Morning routine ✓</label>
+                <input type="date" id="w1-morning-fri-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="w1-morning-sat">
+                <label for="w1-morning-sat">Saturday: Morning routine ✓</label>
+                <input type="date" id="w1-morning-sat-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="w1-morning-sun">
+                <label for="w1-morning-sun">Sunday: Morning routine ✓</label>
+                <input type="date" id="w1-morning-sun-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+            </div>
 
             <details style="margin: 10px 0; padding: 10px; background: #2d3436; border-radius: 5px;">
                 <summary style="cursor: pointer; color: #b8c480; font-weight: bold;">View Morning Routine Details</summary>
@@ -1124,20 +1177,56 @@
             if (selectedBtn) selectedBtn.classList.add('active');
         }
 
-        // Save checkboxes
+        // Add more date fields for consistency tracking
+        let dateFieldCount = 4;
+        function addMoreDateFields() {
+            const container = document.querySelector('.success div[style*="grid"]');
+            for (let i = 0; i < 4; i++) {
+                dateFieldCount++;
+                const newField = document.createElement('div');
+                newField.style.cssText = 'background: #1a1a1a; padding: 10px; border-radius: 5px; border-left: 3px solid #7d8e63;';
+                newField.innerHTML = `
+                    <label style="display: block; margin-bottom: 5px; color: #b8c480; font-weight: bold;">Date completed:</label>
+                    <input type="date" id="routine-log-${dateFieldCount}" class="date-input routine-date" style="width: 100%; background: #2d3436; border: 1px solid #566e3d; color: #ecf0f1; padding: 5px; border-radius: 3px;">
+                `;
+                container.appendChild(newField);
+            }
+            updateConsistencyCounter();
+        }
+
+        // Update consistency counter
+        function updateConsistencyCounter() {
+            const filledDates = Array.from(document.querySelectorAll('.routine-date'))
+                .filter(input => input.value !== '').length;
+            document.getElementById('routine-counter').textContent = filledDates;
+        }
+
+        // Save checkboxes and dates
         document.addEventListener('change', e => {
             if (e.target.type === 'checkbox') {
                 localStorage.setItem(e.target.id, e.target.checked);
+            } else if (e.target.type === 'date') {
+                localStorage.setItem(e.target.id, e.target.value);
+                if (e.target.classList.contains('routine-date')) {
+                    updateConsistencyCounter();
+                }
             }
         });
 
-        // Load checkboxes
+        // Load checkboxes and dates
         window.addEventListener('load', () => {
             document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
                 if (localStorage.getItem(cb.id) === 'true') {
                     cb.checked = true;
                 }
             });
+            document.querySelectorAll('input[type="date"]').forEach(dateInput => {
+                const savedDate = localStorage.getItem(dateInput.id);
+                if (savedDate) {
+                    dateInput.value = savedDate;
+                }
+            });
+            updateConsistencyCounter();
         });
     </script>
 </body>
