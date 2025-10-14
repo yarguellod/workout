@@ -178,8 +178,8 @@
 
     <!-- EXERCISES TAB -->
     <div id="exercises" class="content active">
-        <h2>Exercise Reference Guide</h2>
-        <p>Click any exercise to see the image and instructions</p>
+        <h2 data-en="Exercise Reference Guide" data-es="Guía de Ejercicios">Exercise Reference Guide</h2>
+        <p data-en="Click any exercise to see the image and instructions" data-es="Haz clic en cualquier ejercicio para ver la imagen e instrucciones">Click any exercise to see the image and instructions</p>
 
         <div class="exercise">
             <h3 onclick="toggleExercise('pike-pulse')">Pike Pulses Seated ▼</h3>
@@ -417,18 +417,18 @@
 
         <!-- MORNING ROUTINE CONSISTENCY TRACKER -->
         <div class="success" style="margin: 20px 0;">
-            <h3>📅 Morning Routine Tracker</h3>
-            <p><strong>Log each day you complete the morning routine.</strong> Check the box and add the date to track your consistency!</p>
+            <h3 data-en="📅 Morning Routine Tracker" data-es="📅 Registro de Rutina Matutina">📅 Morning Routine Tracker</h3>
+            <p><strong data-en="Log each day you complete the morning routine." data-es="Registra cada día que completes la rutina matutina.">Log each day you complete the morning routine.</strong> <span data-en="Check the box and add the date to track your consistency!" data-es="Marca la casilla y agrega la fecha para seguir tu consistencia!">Check the box and add the date to track your consistency!</span></p>
 
             <details open style="margin: 10px 0; padding: 10px; background: #2d3436; border-radius: 5px; border: 2px solid #566e3d;">
-                <summary style="cursor: pointer; color: #b8c480; font-weight: bold; font-size: 1.1em;">Morning Routine Exercises (Do EVERY DAY)</summary>
+                <summary style="cursor: pointer; color: #b8c480; font-weight: bold; font-size: 1.1em;" data-en="Morning Routine Exercises (Do EVERY DAY)" data-es="Ejercicios de Rutina Matutina (Hacer TODOS LOS DÍAS)">Morning Routine Exercises (Do EVERY DAY)</summary>
                 <div style="margin-top: 10px; padding: 10px; background: #1a1a1a; border-radius: 3px;">
-                    • Pike pulses: 2 x 20 reps<br>
-                    • Pike compressions: 5 x 5 sec holds<br>
-                    • Standing pike: 10 slow reps<br>
-                    • Elevated L-sit: 5 x 10 sec<br>
-                    • Push-up to down dog: 10 reps<br>
-                    • Hollow hold: 3 x 20 sec
+                    <span data-en="• Pike pulses: 2 x 20 reps" data-es="• Pulsos pike: 2 x 20 reps">• Pike pulses: 2 x 20 reps</span><br>
+                    <span data-en="• Pike compressions: 5 x 5 sec holds" data-es="• Compresiones pike: 5 x 5 seg">• Pike compressions: 5 x 5 sec holds</span><br>
+                    <span data-en="• Standing pike: 10 slow reps" data-es="• Pike de pie: 10 reps lentos">• Standing pike: 10 slow reps</span><br>
+                    <span data-en="• Elevated L-sit: 5 x 10 sec" data-es="• L-sit elevado: 5 x 10 seg">• Elevated L-sit: 5 x 10 sec</span><br>
+                    <span data-en="• Push-up to down dog: 10 reps" data-es="• Flexión a perro boca abajo: 10 reps">• Push-up to down dog: 10 reps</span><br>
+                    <span data-en="• Hollow hold: 3 x 20 sec" data-es="• Hollow hold: 3 x 20 seg">• Hollow hold: 3 x 20 sec</span>
                 </div>
             </details>
 
@@ -470,11 +470,11 @@
                 </div>
             </div>
 
-            <button onclick="addMoreRoutineEntries()" style="margin-top: 15px; padding: 10px 20px; background: #566e3d; border: none; color: #fff; border-radius: 3px; cursor: pointer; font-weight: bold; font-size: 1em;">+ Add More Days</button>
+            <button onclick="addMoreRoutineEntries()" style="margin-top: 15px; padding: 10px 20px; background: #566e3d; border: none; color: #fff; border-radius: 3px; cursor: pointer; font-weight: bold; font-size: 1em;" data-en="+ Add More Days" data-es="+ Agregar Más Días">+ Add More Days</button>
 
             <p style="margin-top: 20px; padding: 15px; background: #2d3436; border-radius: 5px; border-left: 4px solid #b8c480;">
-                <strong style="font-size: 1.1em;">Consistency Stats:</strong><br>
-                <span style="font-size: 1.5em; color: #b8c480; font-weight: bold;" id="routine-counter">0</span> <span style="color: #ecf0f1;">days completed</span>
+                <strong style="font-size: 1.1em;" data-en="Consistency Stats:" data-es="Estadísticas de Consistencia:">Consistency Stats:</strong><br>
+                <span style="font-size: 1.5em; color: #b8c480; font-weight: bold;" id="routine-counter">0</span> <span style="color: #ecf0f1;" data-en="days completed" data-es="días completados">days completed</span>
             </p>
         </div>
 
@@ -553,57 +553,47 @@
                 </div>
             </details>
 
-            <h4>Monday, Oct 14 - Full Training</h4>
-            <div class="note"><strong>Press to Handstand:</strong></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-1"><label for="w1-mon-1">Wall handstand: 4 x 30 sec</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-2"><label for="w1-mon-2">Pike push-ups: 4 x 6 reps</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-3"><label for="w1-mon-3">Plank to pike: 4 x 8 reps</label></div>
-            <div class="note"><strong>Toes to Bar:</strong></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-4"><label for="w1-mon-4">Hanging knee raises: 4 x 6 reps + 3s hold</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-5"><label for="w1-mon-5">Lying leg raises: 4 x 8 reps</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-6"><label for="w1-mon-6">Hollow hold: 4 x 20 sec</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-7"><label for="w1-mon-7">Dead hang: 3 x 30 sec</label></div>
-            <div class="note"><strong>Pistol Squats:</strong></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-8"><label for="w1-mon-8">Box pistols (high box): 4 x 6 per leg</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-9"><label for="w1-mon-9">Single-leg RDLs: 4 x 8 per leg</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-mon-10"><label for="w1-mon-10">Deep goblet squats: 3 x 10 reps</label></div>
+            <h4 data-en="Monday, Oct 14 - PUSH DAY (Día de Empuje)" data-es="Lunes, Oct 14 - DÍA DE EMPUJE">Monday, Oct 14 - PUSH DAY (Día de Empuje)</h4>
+            <div class="note"><strong data-en="Focus: Handstand press preparation + shoulder strength" data-es="Enfoque: Preparación para press a handstand + fuerza de hombros">Focus: Handstand press preparation + shoulder strength</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-1"><label for="w1-mon-1"><span data-en="Wall handstand: 4 x 30 sec" data-es="Handstand en pared: 4 x 30 seg">Wall handstand: 4 x 30 sec</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-2"><label for="w1-mon-2"><span data-en="Pike push-ups: 4 x 6 reps" data-es="Flexiones pike: 4 x 6 reps">Pike push-ups: 4 x 6 reps</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-mon-3"><label for="w1-mon-3"><span data-en="Plank to pike: 4 x 8 reps" data-es="Plancha a pike: 4 x 8 reps">Plank to pike: 4 x 8 reps</span></label></div>
 
-            <h4>Tuesday, Oct 15 - Active Recovery</h4>
-            <div class="checkbox"><input type="checkbox" id="w1-tue-1"><label for="w1-tue-1">Easy walk or bike: 20 min</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-tue-2"><label for="w1-tue-2">Gentle yoga or stretching: 15 min</label></div>
+            <h4 data-en="Tuesday, Oct 15 - PULL DAY (Día de Tirón)" data-es="Martes, Oct 15 - DÍA DE TIRÓN">Tuesday, Oct 15 - PULL DAY (Día de Tirón)</h4>
+            <div class="note"><strong data-en="Focus: Toes to bar progression + core/grip strength" data-es="Enfoque: Progresión toes to bar + fuerza de core/agarre">Focus: Toes to bar progression + core/grip strength</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-tue-1"><label for="w1-tue-1"><span data-en="Hanging knee raises: 4 x 6 reps + 3s hold" data-es="Elevación de rodillas colgado: 4 x 6 reps + 3s hold">Hanging knee raises: 4 x 6 reps + 3s hold</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-tue-2"><label for="w1-tue-2"><span data-en="Lying leg raises: 4 x 8 reps" data-es="Elevación de piernas acostado: 4 x 8 reps">Lying leg raises: 4 x 8 reps</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-tue-3"><label for="w1-tue-3"><span data-en="Hollow hold: 4 x 20 sec" data-es="Hollow hold: 4 x 20 seg">Hollow hold: 4 x 20 sec</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-tue-4"><label for="w1-tue-4"><span data-en="Dead hang: 3 x 30 sec" data-es="Cuelgue muerto: 3 x 30 seg">Dead hang: 3 x 30 sec</span></label></div>
 
-            <h4>Wednesday, Oct 16 - 🔥 OVULATION PEAK!</h4>
-            <div class="warning"><strong>YOUR BEST DAY!</strong> Test limits, go for PRs, film yourself!</div>
-            <div class="checkbox"><input type="checkbox" id="w1-wed-1"><label for="w1-wed-1">🎥 BEST PRESS ATTEMPTS: 8-10 tries</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-wed-2"><label for="w1-wed-2">Max handstand hold: 3 attempts</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-wed-3"><label for="w1-wed-3">🎥 MAX TOES TO BAR: Get as high as you can</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-wed-4"><label for="w1-wed-4">🎥 DEEPEST PISTOLS: 4 x 6 per leg</label></div>
+            <h4 data-en="Wednesday, Oct 16 - LEGS DAY + 🔥 OVULATION PEAK!" data-es="Miércoles, Oct 16 - DÍA DE PIERNAS + 🔥 PICO DE OVULACIÓN!">Wednesday, Oct 16 - LEGS DAY + 🔥 OVULATION PEAK!</h4>
+            <div class="warning"><strong data-en="YOUR BEST DAY! Test pistol squat max depth, film yourself!" data-es="¡TU MEJOR DÍA! Prueba máxima profundidad en pistol squat, grábate!">YOUR BEST DAY! Test pistol squat max depth, film yourself!</strong></div>
+            <div class="note"><strong data-en="Focus: Pistol squat progression (heavy hip thrust with coach)" data-es="Enfoque: Progresión pistol squat (hip thrust pesado con entrenador)">Focus: Pistol squat progression (heavy hip thrust with coach)</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-wed-1"><label for="w1-wed-1"><span data-en="🎥 Box pistols (high box): Test lowest box - 4 x 6 per leg" data-es="🎥 Pistols en caja (caja alta): Probar caja más baja - 4 x 6 por pierna">🎥 Box pistols (high box): Test lowest box - 4 x 6 per leg</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-wed-2"><label for="w1-wed-2"><span data-en="Single-leg RDLs: 4 x 8 per leg" data-es="RDL a una pierna: 4 x 8 por pierna">Single-leg RDLs: 4 x 8 per leg</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-wed-3"><label for="w1-wed-3"><span data-en="Deep goblet squats: 3 x 10 reps" data-es="Sentadillas goblet profundas: 3 x 10 reps">Deep goblet squats: 3 x 10 reps</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-wed-4"><label for="w1-wed-4"><span data-en="Hip thrust (with coach): 70-90kg as prescribed" data-es="Hip thrust (con entrenador): 70-90kg según prescrito">Hip thrust (with coach): 70-90kg as prescribed</span></label></div>
 
-            <h4>Thursday, Oct 17 - Flexibility Focus</h4>
-            <div class="checkbox"><input type="checkbox" id="w1-thu-1"><label for="w1-thu-1">Deep squat hold: 2 min total</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-thu-2"><label for="w1-thu-2">90/90 hip stretches: 1 min per side</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-thu-3"><label for="w1-thu-3">Cossack squats: 10 per side</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-thu-4"><label for="w1-thu-4">Wall ankle mobilization: 15 per ankle</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-thu-5"><label for="w1-thu-5">Extended pike work: 15 min</label></div>
+            <h4 data-en="Thursday, Oct 17 - HANDSTAND DAY (Día de Handstand)" data-es="Jueves, Oct 17 - DÍA DE HANDSTAND">Thursday, Oct 17 - HANDSTAND DAY (Día de Handstand)</h4>
+            <div class="note"><strong data-en="Focus: Balance, variations, holds - handstand practice day with coach" data-es="Enfoque: Balance, variaciones, holds - día de práctica de handstand con entrenador">Focus: Balance, variations, holds - handstand practice day with coach</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-thu-1"><label for="w1-thu-1"><span data-en="Wall handstand: 5 x 30 sec (focus on balance)" data-es="Handstand en pared: 5 x 30 seg (enfoque en balance)">Wall handstand: 5 x 30 sec (focus on balance)</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-thu-2"><label for="w1-thu-2"><span data-en="Diamond handstand attempts: 3-5 tries" data-es="Intentos de handstand diamante: 3-5 intentos">Diamond handstand attempts: 3-5 tries</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-thu-3"><label for="w1-thu-3"><span data-en="Handstand holds (freestanding attempts): 8-10 tries" data-es="Holds de handstand (intentos sin pared): 8-10 intentos">Handstand holds (freestanding attempts): 8-10 tries</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-thu-4"><label for="w1-thu-4"><span data-en="Pike push-ups: 3 x 5 reps (light technique work)" data-es="Flexiones pike: 3 x 5 reps (trabajo técnico ligero)">Pike push-ups: 3 x 5 reps (light technique work)</span></label></div>
 
-            <h4>Friday, Oct 18 - Full Training</h4>
-            <div class="note"><strong>Press to Handstand:</strong></div>
-            <div class="checkbox"><input type="checkbox" id="w1-fri-1"><label for="w1-fri-1">Wall handstand: 4 x 30 sec</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-fri-2"><label for="w1-fri-2">Pike push-ups: 4 x 6 reps</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-fri-3"><label for="w1-fri-3">Plank to pike: 4 x 8 reps</label></div>
-            <div class="note"><strong>Toes to Bar:</strong></div>
-            <div class="checkbox"><input type="checkbox" id="w1-fri-4"><label for="w1-fri-4">Hanging knee raises: 4 x 6 reps + 3s hold</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-fri-5"><label for="w1-fri-5">Lying leg raises: 4 x 8 reps</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-fri-6"><label for="w1-fri-6">Dead hang: 3 x 30 sec</label></div>
-            <div class="note"><strong>Pistol Squats:</strong></div>
-            <div class="checkbox"><input type="checkbox" id="w1-fri-7"><label for="w1-fri-7">Box pistols (high box): 4 x 6 per leg</label></div>
-            <div class="checkbox"><input type="checkbox" id="w1-fri-8"><label for="w1-fri-8">Single-leg RDLs: 4 x 8 per leg</label></div>
+            <h4 data-en="Friday, Oct 18 - PULL + LEGS (Tirón + Piernas)" data-es="Viernes, Oct 18 - TIRÓN + PIERNAS">Friday, Oct 18 - PULL + LEGS (Tirón + Piernas)</h4>
+            <div class="note"><strong data-en="Focus: Toes to bar work + 1-2 leg exercises" data-es="Enfoque: Trabajo de toes to bar + 1-2 ejercicios de piernas">Focus: Toes to bar work + 1-2 leg exercises</strong></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-1"><label for="w1-fri-1"><span data-en="Hanging knee raises: 4 x 6 reps + 3s hold" data-es="Elevación de rodillas colgado: 4 x 6 reps + 3s hold">Hanging knee raises: 4 x 6 reps + 3s hold</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-2"><label for="w1-fri-2"><span data-en="Lying leg raises: 4 x 8 reps" data-es="Elevación de piernas acostado: 4 x 8 reps">Lying leg raises: 4 x 8 reps</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-3"><label for="w1-fri-3"><span data-en="Dead hang: 3 x 30 sec" data-es="Cuelgue muerto: 3 x 30 seg">Dead hang: 3 x 30 sec</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-4"><label for="w1-fri-4"><span data-en="Box pistols (high box): 3 x 6 per leg" data-es="Pistols en caja (caja alta): 3 x 6 por pierna">Box pistols (high box): 3 x 6 per leg</span></label></div>
+            <div class="checkbox"><input type="checkbox" id="w1-fri-5"><label for="w1-fri-5"><span data-en="Single-leg RDLs: 3 x 8 per leg" data-es="RDL a una pierna: 3 x 8 por pierna">Single-leg RDLs: 3 x 8 per leg</span></label></div>
 
-            <h4>Saturday, Oct 19 - Active Recovery</h4>
-            <div class="checkbox"><input type="checkbox" id="w1-sat-1"><label for="w1-sat-1">Light walk, swim, or yoga: 30-40 min</label></div>
+            <h4 data-en="Saturday, Oct 19 - Active Recovery" data-es="Sábado, Oct 19 - Recuperación Activa">Saturday, Oct 19 - Active Recovery</h4>
+            <div class="checkbox"><input type="checkbox" id="w1-sat-1"><label for="w1-sat-1"><span data-en="Light walk, swim, or yoga: 30-40 min" data-es="Caminata ligera, natación o yoga: 30-40 min">Light walk, swim, or yoga: 30-40 min</span></label></div>
 
-            <h4>Sunday, Oct 20 - REST</h4>
-            <div class="checkbox"><input type="checkbox" id="w1-sun-1"><label for="w1-sun-1">Complete rest or gentle movement only</label></div>
+            <h4 data-en="Sunday, Oct 20 - REST" data-es="Domingo, Oct 20 - DESCANSO">Sunday, Oct 20 - REST</h4>
+            <div class="checkbox"><input type="checkbox" id="w1-sun-1"><label for="w1-sun-1"><span data-en="Complete rest or gentle movement only" data-es="Descanso completo o movimiento suave solamente">Complete rest or gentle movement only</span></label></div>
         </div>
 
         <!-- WEEK 2: Oct 21-27 -->
