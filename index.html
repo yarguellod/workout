@@ -386,8 +386,8 @@
         </div>
 
         <div class="success">
-            <h3 style="margin-top: 0;">🚀 Why This Matters for Buffer</h3>
-            <p style="line-height: 1.6; margin-bottom: 10px;">This project demonstrates key skills relevant to working at Buffer:</p>
+            <h3 style="margin-top: 0;">🚀 Key Design Principles</h3>
+            <p style="line-height: 1.6; margin-bottom: 10px;">This project demonstrates important product development skills:</p>
             <ul style="line-height: 1.8;">
                 <li><strong>User-Centric Design:</strong> Built to solve a real problem with intuitive UX</li>
                 <li><strong>Data-Driven:</strong> Analytics dashboard shows progress and encourages consistency</li>
@@ -401,7 +401,7 @@
             <button class="share-btn" onclick="shareProgress()">
                 📱 Share My Progress
             </button>
-            <p style="font-size: 0.85em; color: #bdc3c7; margin-top: 10px;">Perfect for Buffer! Share fitness wins on social media</p>
+            <p style="font-size: 0.85em; color: #bdc3c7; margin-top: 10px;">Share your fitness wins on social media</p>
         </div>
 
         <div class="note" style="background: #2c3e50;">
@@ -1585,7 +1585,7 @@
             document.getElementById('best-week').textContent = bestWeek + '%';
         }
 
-        // Share progress function (Buffer-relevant!)
+        // Share progress function
         function shareProgress() {
             const totalWorkouts = document.getElementById('total-workouts').textContent;
             const streak = document.getElementById('current-streak').textContent.replace('🔥', '');
@@ -1610,7 +1610,7 @@
 
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('✅ Progress copied to clipboard! Ready to share on social media (perfect for Buffer!)');
+                alert('✅ Progress copied to clipboard! Ready to share on social media');
             }).catch(() => {
                 // Final fallback - show text in alert
                 alert('Share this:\n\n' + text);
