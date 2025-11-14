@@ -1704,9 +1704,9 @@
 
             // Calculate days since period started
             const daysSince = Math.floor((today - periodDate) / (1000 * 60 * 60 * 24));
-            const cycleDay = (daysSince % 28) + 1; // Assuming 28-day cycle
+            const cycleDay = daysSince + 1; // Day 1 = first day of period
 
-            // Determine phase
+            // Determine phase based on actual cycle day
             let phase, rec, color;
             if (cycleDay >= 1 && cycleDay <= 5) {
                 phase = 'Menstrual Phase 🩸';
@@ -1720,15 +1720,26 @@
                 phase = 'Ovulation Peak 🔥';
                 rec = 'PEAK PERFORMANCE! Your STRONGEST days. Go for PRs, film form checks, maximum intensity!';
                 color = '#f39c12';
-            } else {
+            } else if (cycleDay >= 17 && cycleDay <= 28) {
                 phase = 'Luteal Phase 🌙';
                 rec = 'Deload week. Lower volume (60-70%), focus on technique, mobility, and skill work. Be gentle.';
                 color = '#9b59b6';
+            } else {
+                // Past day 28, likely a new cycle starting soon or irregular
+                phase = 'Late Luteal/Pre-Menstrual 🌙';
+                rec = 'Cycle may be longer or period starting soon. Listen to your body, reduce intensity.';
+                color = '#9b59b6';
             }
 
-            // Calculate next ovulation
+            // Calculate next ovulation (14 days from period start)
             const nextOvulation = new Date(periodDate);
-            nextOvulation.setDate(nextOvulation.getDate() + 14 + (28 - (daysSince % 28)));
+            nextOvulation.setDate(periodDate.getDate() + 14);
+
+            // If we're past ovulation in this cycle, calculate for next cycle (assuming 29-day cycle based on your dates)
+            if (cycleDay > 16) {
+                // Next period expected around day 29, ovulation 14 days after that
+                nextOvulation.setDate(periodDate.getDate() + 29 + 14);
+            }
 
             // Display results
             document.getElementById('today-date').textContent = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
