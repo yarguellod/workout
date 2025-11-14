@@ -627,24 +627,46 @@
     <div id="weekly" class="content">
         <h2>📅 Your 12-Week Training Plan</h2>
 
+        <!-- PERIOD/CYCLE TRACKER -->
+        <div class="warning" style="background: linear-gradient(135deg, #4a2c3e 0%, #3d2535 100%); border-left: 5px solid #e74c3c;">
+            <h3 style="margin-top: 0; color: #e74c3c; font-size: 1.2em;">🩸 Cycle Tracker</h3>
+            <p style="margin-bottom: 15px;">Enter your last period start date to calculate your current cycle day and training phase:</p>
+
+            <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                <div>
+                    <label for="period-date" style="display: block; margin-bottom: 5px; font-weight: bold;">Last Period Start:</label>
+                    <input type="date" id="period-date" style="background: #2d3436; border: 2px solid #e74c3c; color: #ecf0f1; padding: 10px; border-radius: 5px; font-size: 1em;">
+                </div>
+                <button onclick="calculateCycle()" style="padding: 10px 20px; background: #e74c3c; border: none; color: #fff; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 20px;">Calculate My Phase</button>
+            </div>
+
+            <div id="cycle-results" style="margin-top: 15px; padding: 15px; background: #2d3436; border-radius: 5px; display: none;">
+                <strong>Today's Date:</strong> <span id="today-date"></span><br>
+                <strong>Cycle Day:</strong> <span id="cycle-day" style="color: #b8c480; font-size: 1.2em;"></span><br>
+                <strong>Current Phase:</strong> <span id="current-phase" style="color: #b8c480; font-size: 1.2em;"></span><br>
+                <strong>Training Recommendation:</strong> <span id="training-rec"></span><br>
+                <strong>Next Ovulation (est):</strong> <span id="next-ovulation"></span>
+            </div>
+        </div>
+
         <!-- START HERE GUIDE -->
-        <div class="success" style="border-left: 5px solid #b8c480; box-shadow: 0 4px 6px rgba(184, 196, 128, 0.3);">
+        <div class="success" style="border-left: 5px solid #b8c480; box-shadow: 0 4px 6px rgba(184, 196, 128, 0.3); margin-top: 20px;">
             <h3 style="margin-top: 0; color: #b8c480; font-size: 1.3em;">👉 START HERE</h3>
             <ol style="line-height: 1.8; font-size: 1.05em;">
-                <li><strong>Pick your current week</strong> using the buttons below (start with Week 1 if new)</li>
-                <li><strong>Do the morning routine daily</strong> - check it off in the tracker above each week</li>
-                <li><strong>Follow the weekly workout schedule</strong> - each day has specific exercises</li>
+                <li><strong>Track your cycle</strong> using the Period Tracker above to optimize training!</li>
+                <li><strong>Pick your current week</strong> using the buttons below (or based on cycle phase)</li>
+                <li><strong>Do the morning routine daily</strong> - check it off in each week section</li>
+                <li><strong>Follow the weekly workout schedule</strong> - adjusted for your cycle phase</li>
                 <li><strong>Check off items as you complete them</strong> - progress saves automatically!</li>
-                <li><strong>Track your progress</strong> in the Analytics tab to stay motivated</li>
             </ol>
         </div>
 
         <div class="note" style="margin-top: 20px;">
-            <strong>💡 Quick Tips:</strong><br>
-            • Morning routine = 6 exercises, takes ~10 minutes<br>
-            • Training days = specific workouts for that day<br>
-            • Rest days = still do morning routine for consistency<br>
-            • Check the Exercises tab for detailed instructions on any exercise
+            <strong>💡 Cycle-Synced Training:</strong><br>
+            • <strong>Follicular (Days 1-14):</strong> High energy - push hard, test maxes, heavy loads<br>
+            • <strong>Ovulation (Day 14-16):</strong> PEAK! Best strength & power days<br>
+            • <strong>Luteal (Days 17-28):</strong> Lower volume, deload, focus on technique & mobility<br>
+            • <strong>Menstrual (Days 1-5):</strong> Light activity, gentle movement, rest as needed
         </div>
 
         <!-- MORNING ROUTINE CONSISTENCY TRACKER -->
@@ -732,51 +754,44 @@
             </div>
         </div>
 
-        <!-- WEEK 1: Oct 14-20 -->
+        <!-- WEEK 1: Oct 14-20, 2025 -->
         <div id="week-1" class="week-content" style="display: block;">
-            <h3>Week 1: Oct 14-20 (CD 11-17) - Follicular Peak</h3>
+            <h3>Week 1: Oct 14-20, 2025 (CD 11-17) - Follicular Peak</h3>
             <div class="success">
                 <strong>Phase:</strong> Follicular → Ovulation<br>
                 <strong>Energy:</strong> HIGH - Peak performance window!<br>
                 <strong>🔥 Wed Oct 16 = OVULATION PEAK!</strong>
             </div>
 
-            <h4>Daily Morning Routine (Every Day This Week)</h4>
-            <div class="note">Do this EVERY DAY - even on rest days! Log the date when you complete it to track consistency.</div>
+            <h4>💪 Daily Morning Routine</h4>
+            <div class="note">Check off each day you complete the morning routine (6 exercises, ~10 min)</div>
             <div class="checkbox">
                 <input type="checkbox" id="w1-morning-mon">
-                <label for="w1-morning-mon">Monday: Morning routine ✓</label>
-                <input type="date" id="w1-morning-mon-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+                <label for="w1-morning-mon">Monday, Oct 14 - Morning routine</label>
             </div>
             <div class="checkbox">
                 <input type="checkbox" id="w1-morning-tue">
-                <label for="w1-morning-tue">Tuesday: Morning routine ✓</label>
-                <input type="date" id="w1-morning-tue-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+                <label for="w1-morning-tue">Tuesday, Oct 15 - Morning routine</label>
             </div>
             <div class="checkbox">
                 <input type="checkbox" id="w1-morning-wed">
-                <label for="w1-morning-wed">Wednesday: Morning routine ✓</label>
-                <input type="date" id="w1-morning-wed-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+                <label for="w1-morning-wed">Wednesday, Oct 16 - Morning routine 🔥</label>
             </div>
             <div class="checkbox">
                 <input type="checkbox" id="w1-morning-thu">
-                <label for="w1-morning-thu">Thursday: Morning routine ✓</label>
-                <input type="date" id="w1-morning-thu-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+                <label for="w1-morning-thu">Thursday, Oct 17 - Morning routine</label>
             </div>
             <div class="checkbox">
                 <input type="checkbox" id="w1-morning-fri">
-                <label for="w1-morning-fri">Friday: Morning routine ✓</label>
-                <input type="date" id="w1-morning-fri-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+                <label for="w1-morning-fri">Friday, Oct 18 - Morning routine</label>
             </div>
             <div class="checkbox">
                 <input type="checkbox" id="w1-morning-sat">
-                <label for="w1-morning-sat">Saturday: Morning routine ✓</label>
-                <input type="date" id="w1-morning-sat-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+                <label for="w1-morning-sat">Saturday, Oct 19 - Morning routine</label>
             </div>
             <div class="checkbox">
                 <input type="checkbox" id="w1-morning-sun">
-                <label for="w1-morning-sun">Sunday: Morning routine ✓</label>
-                <input type="date" id="w1-morning-sun-date" class="date-input" style="margin-left: 10px; background: #1a1a1a; border: 1px solid #566e3d; color: #b8c480; padding: 3px; border-radius: 3px;">
+                <label for="w1-morning-sun">Sunday, Oct 20 - Morning routine</label>
             </div>
 
             <details style="margin: 10px 0; padding: 10px; background: #2d3436; border-radius: 5px;">
@@ -791,47 +806,63 @@
                 </div>
             </details>
 
-            <h4 data-en="Monday, Oct 14 - PUSH DAY (Día de Empuje)" data-es="Lunes, Oct 14 - DÍA DE EMPUJE">Monday, Oct 14 - PUSH DAY (Día de Empuje)</h4>
+            <h4 data-en="🏋️ Weekly Workouts" data-es="🏋️ Entrenamientos Semanales">🏋️ Weekly Workouts</h4>
+
+            <div class="day-section">
+                <h5 data-en="Monday, Oct 14 - PUSH DAY" data-es="Lunes, Oct 14 - DÍA DE EMPUJE">Monday, Oct 14 - PUSH DAY</h5>
             <div class="note"><strong data-en="Focus: Handstand press preparation + shoulder strength" data-es="Enfoque: Preparación para press a handstand + fuerza de hombros">Focus: Handstand press preparation + shoulder strength</strong></div>
             <div class="checkbox"><input type="checkbox" id="w1-mon-1"><label for="w1-mon-1"><span data-en="Wall handstand: 4 x 30 sec" data-es="Handstand en pared: 4 x 30 seg">Wall handstand: 4 x 30 sec</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-mon-2"><label for="w1-mon-2"><span data-en="Pike push-ups: 4 x 6 reps" data-es="Flexiones pike: 4 x 6 reps">Pike push-ups: 4 x 6 reps</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-mon-3"><label for="w1-mon-3"><span data-en="Plank to pike: 4 x 8 reps" data-es="Plancha a pike: 4 x 8 reps">Plank to pike: 4 x 8 reps</span></label></div>
+            </div>
 
-            <h4 data-en="Tuesday, Oct 15 - PULL DAY (Día de Tirón)" data-es="Martes, Oct 15 - DÍA DE TIRÓN">Tuesday, Oct 15 - PULL DAY (Día de Tirón)</h4>
+            <div class="day-section">
+                <h5 data-en="Tuesday, Oct 15 - PULL DAY" data-es="Martes, Oct 15 - DÍA DE TIRÓN">Tuesday, Oct 15 - PULL DAY</h5>
             <div class="note"><strong data-en="Focus: Toes to bar progression + core/grip strength" data-es="Enfoque: Progresión toes to bar + fuerza de core/agarre">Focus: Toes to bar progression + core/grip strength</strong></div>
             <div class="checkbox"><input type="checkbox" id="w1-tue-1"><label for="w1-tue-1"><span data-en="Hanging knee raises: 4 x 6 reps + 3s hold" data-es="Elevación de rodillas colgado: 4 x 6 reps + 3s hold">Hanging knee raises: 4 x 6 reps + 3s hold</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-tue-2"><label for="w1-tue-2"><span data-en="Lying leg raises: 4 x 8 reps" data-es="Elevación de piernas acostado: 4 x 8 reps">Lying leg raises: 4 x 8 reps</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-tue-3"><label for="w1-tue-3"><span data-en="Hollow hold: 4 x 20 sec" data-es="Hollow hold: 4 x 20 seg">Hollow hold: 4 x 20 sec</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-tue-4"><label for="w1-tue-4"><span data-en="Dead hang: 3 x 30 sec" data-es="Cuelgue muerto: 3 x 30 seg">Dead hang: 3 x 30 sec</span></label></div>
+            </div>
 
-            <h4 data-en="Wednesday, Oct 16 - LEGS DAY + 🔥 OVULATION PEAK!" data-es="Miércoles, Oct 16 - DÍA DE PIERNAS + 🔥 PICO DE OVULACIÓN!">Wednesday, Oct 16 - LEGS DAY + 🔥 OVULATION PEAK!</h4>
+            <div class="day-section">
+                <h5 data-en="Wednesday, Oct 16 - LEGS DAY 🔥" data-es="Miércoles, Oct 16 - DÍA DE PIERNAS 🔥">Wednesday, Oct 16 - LEGS DAY 🔥</h5>
             <div class="warning"><strong data-en="YOUR BEST DAY! Test pistol squat max depth, film yourself!" data-es="¡TU MEJOR DÍA! Prueba máxima profundidad en pistol squat, grábate!">YOUR BEST DAY! Test pistol squat max depth, film yourself!</strong></div>
             <div class="note"><strong data-en="Focus: Pistol squat progression (heavy hip thrust with coach)" data-es="Enfoque: Progresión pistol squat (hip thrust pesado con entrenador)">Focus: Pistol squat progression (heavy hip thrust with coach)</strong></div>
             <div class="checkbox"><input type="checkbox" id="w1-wed-1"><label for="w1-wed-1"><span data-en="🎥 Box pistols (high box): Test lowest box - 4 x 6 per leg" data-es="🎥 Pistols en caja (caja alta): Probar caja más baja - 4 x 6 por pierna">🎥 Box pistols (high box): Test lowest box - 4 x 6 per leg</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-wed-2"><label for="w1-wed-2"><span data-en="Single-leg RDLs: 4 x 8 per leg" data-es="RDL a una pierna: 4 x 8 por pierna">Single-leg RDLs: 4 x 8 per leg</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-wed-3"><label for="w1-wed-3"><span data-en="Deep goblet squats: 3 x 10 reps" data-es="Sentadillas goblet profundas: 3 x 10 reps">Deep goblet squats: 3 x 10 reps</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-wed-4"><label for="w1-wed-4"><span data-en="Hip thrust (with coach): 70-90kg as prescribed" data-es="Hip thrust (con entrenador): 70-90kg según prescrito">Hip thrust (with coach): 70-90kg as prescribed</span></label></div>
+            </div>
 
-            <h4 data-en="Thursday, Oct 17 - HANDSTAND DAY (Día de Handstand)" data-es="Jueves, Oct 17 - DÍA DE HANDSTAND">Thursday, Oct 17 - HANDSTAND DAY (Día de Handstand)</h4>
+            <div class="day-section">
+                <h5 data-en="Thursday, Oct 17 - HANDSTAND DAY" data-es="Jueves, Oct 17 - DÍA DE HANDSTAND">Thursday, Oct 17 - HANDSTAND DAY</h5>
             <div class="note"><strong data-en="Focus: Balance, variations, holds - handstand practice day with coach" data-es="Enfoque: Balance, variaciones, holds - día de práctica de handstand con entrenador">Focus: Balance, variations, holds - handstand practice day with coach</strong></div>
             <div class="checkbox"><input type="checkbox" id="w1-thu-1"><label for="w1-thu-1"><span data-en="Wall handstand: 5 x 30 sec (focus on balance)" data-es="Handstand en pared: 5 x 30 seg (enfoque en balance)">Wall handstand: 5 x 30 sec (focus on balance)</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-thu-2"><label for="w1-thu-2"><span data-en="Diamond handstand attempts: 3-5 tries" data-es="Intentos de handstand diamante: 3-5 intentos">Diamond handstand attempts: 3-5 tries</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-thu-3"><label for="w1-thu-3"><span data-en="Handstand holds (freestanding attempts): 8-10 tries" data-es="Holds de handstand (intentos sin pared): 8-10 intentos">Handstand holds (freestanding attempts): 8-10 tries</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-thu-4"><label for="w1-thu-4"><span data-en="Pike push-ups: 3 x 5 reps (light technique work)" data-es="Flexiones pike: 3 x 5 reps (trabajo técnico ligero)">Pike push-ups: 3 x 5 reps (light technique work)</span></label></div>
+            </div>
 
-            <h4 data-en="Friday, Oct 18 - PULL + LEGS (Tirón + Piernas)" data-es="Viernes, Oct 18 - TIRÓN + PIERNAS">Friday, Oct 18 - PULL + LEGS (Tirón + Piernas)</h4>
+            <div class="day-section">
+                <h5 data-en="Friday, Oct 18 - PULL + LEGS" data-es="Viernes, Oct 18 - TIRÓN + PIERNAS">Friday, Oct 18 - PULL + LEGS</h5>
             <div class="note"><strong data-en="Focus: Toes to bar work + 1-2 leg exercises" data-es="Enfoque: Trabajo de toes to bar + 1-2 ejercicios de piernas">Focus: Toes to bar work + 1-2 leg exercises</strong></div>
             <div class="checkbox"><input type="checkbox" id="w1-fri-1"><label for="w1-fri-1"><span data-en="Hanging knee raises: 4 x 6 reps + 3s hold" data-es="Elevación de rodillas colgado: 4 x 6 reps + 3s hold">Hanging knee raises: 4 x 6 reps + 3s hold</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-fri-2"><label for="w1-fri-2"><span data-en="Lying leg raises: 4 x 8 reps" data-es="Elevación de piernas acostado: 4 x 8 reps">Lying leg raises: 4 x 8 reps</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-fri-3"><label for="w1-fri-3"><span data-en="Dead hang: 3 x 30 sec" data-es="Cuelgue muerto: 3 x 30 seg">Dead hang: 3 x 30 sec</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-fri-4"><label for="w1-fri-4"><span data-en="Box pistols (high box): 3 x 6 per leg" data-es="Pistols en caja (caja alta): 3 x 6 por pierna">Box pistols (high box): 3 x 6 per leg</span></label></div>
             <div class="checkbox"><input type="checkbox" id="w1-fri-5"><label for="w1-fri-5"><span data-en="Single-leg RDLs: 3 x 8 per leg" data-es="RDL a una pierna: 3 x 8 por pierna">Single-leg RDLs: 3 x 8 per leg</span></label></div>
+            </div>
 
-            <h4 data-en="Saturday, Oct 19 - Active Recovery" data-es="Sábado, Oct 19 - Recuperación Activa">Saturday, Oct 19 - Active Recovery</h4>
+            <div class="day-section">
+                <h5 data-en="Saturday, Oct 19 - Active Recovery" data-es="Sábado, Oct 19 - Recuperación Activa">Saturday, Oct 19 - Active Recovery</h5>
             <div class="checkbox"><input type="checkbox" id="w1-sat-1"><label for="w1-sat-1"><span data-en="Light walk, swim, or yoga: 30-40 min" data-es="Caminata ligera, natación o yoga: 30-40 min">Light walk, swim, or yoga: 30-40 min</span></label></div>
+            </div>
 
-            <h4 data-en="Sunday, Oct 20 - REST" data-es="Domingo, Oct 20 - DESCANSO">Sunday, Oct 20 - REST</h4>
+            <div class="day-section">
+                <h5 data-en="Sunday, Oct 20 - REST" data-es="Domingo, Oct 20 - DESCANSO">Sunday, Oct 20 - REST</h5>
             <div class="checkbox"><input type="checkbox" id="w1-sun-1"><label for="w1-sun-1"><span data-en="Complete rest or gentle movement only" data-es="Descanso completo o movimiento suave solamente">Complete rest or gentle movement only</span></label></div>
+            </div>
         </div>
 
         <!-- WEEK 2: Oct 21-27 -->
@@ -1657,6 +1688,72 @@
                 calculateAnalytics();
             }
         };
+
+        // CYCLE TRACKING FUNCTIONS
+        function calculateCycle() {
+            const periodDateInput = document.getElementById('period-date');
+            const periodDate = new Date(periodDateInput.value);
+
+            if (!periodDateInput.value) {
+                alert('Please enter your last period start date');
+                return;
+            }
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            periodDate.setHours(0, 0, 0, 0);
+
+            // Calculate days since period started
+            const daysSince = Math.floor((today - periodDate) / (1000 * 60 * 60 * 24));
+            const cycleDay = (daysSince % 28) + 1; // Assuming 28-day cycle
+
+            // Determine phase
+            let phase, rec, color;
+            if (cycleDay >= 1 && cycleDay <= 5) {
+                phase = 'Menstrual Phase 🩸';
+                rec = 'Light activity, gentle movement, rest as needed. Focus on mobility and breathwork.';
+                color = '#e74c3c';
+            } else if (cycleDay >= 6 && cycleDay <= 13) {
+                phase = 'Follicular Phase 💪';
+                rec = 'HIGH ENERGY! Push hard, progressive overload, test new maxes. Your body can handle it!';
+                color = '#b8c480';
+            } else if (cycleDay >= 14 && cycleDay <= 16) {
+                phase = 'Ovulation Peak 🔥';
+                rec = 'PEAK PERFORMANCE! Your STRONGEST days. Go for PRs, film form checks, maximum intensity!';
+                color = '#f39c12';
+            } else {
+                phase = 'Luteal Phase 🌙';
+                rec = 'Deload week. Lower volume (60-70%), focus on technique, mobility, and skill work. Be gentle.';
+                color = '#9b59b6';
+            }
+
+            // Calculate next ovulation
+            const nextOvulation = new Date(periodDate);
+            nextOvulation.setDate(nextOvulation.getDate() + 14 + (28 - (daysSince % 28)));
+
+            // Display results
+            document.getElementById('today-date').textContent = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            document.getElementById('cycle-day').textContent = `Day ${cycleDay}`;
+            document.getElementById('cycle-day').style.color = color;
+            document.getElementById('current-phase').textContent = phase;
+            document.getElementById('current-phase').style.color = color;
+            document.getElementById('training-rec').textContent = rec;
+            document.getElementById('next-ovulation').textContent = nextOvulation.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) + ' (Day 14)';
+
+            document.getElementById('cycle-results').style.display = 'block';
+
+            // Save to localStorage
+            localStorage.setItem('lastPeriodDate', periodDateInput.value);
+        }
+
+        // Load saved period date on page load
+        window.addEventListener('load', () => {
+            const savedPeriodDate = localStorage.getItem('lastPeriodDate');
+            if (savedPeriodDate) {
+                document.getElementById('period-date').value = savedPeriodDate;
+                calculateCycle();
+            }
+        });
     </script>
 </body>
 </html>
