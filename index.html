@@ -107,10 +107,25 @@
             align-items: center;
             gap: 10px;
             margin: 10px 0;
-            padding: 10px;
+            padding: 12px;
             background: #1a1a1a;
-            border-radius: 3px;
-            border-left: 3px solid #7d8e63;
+            border-radius: 5px;
+            border-left: 4px solid #7d8e63;
+            transition: all 0.3s ease;
+        }
+        .checkbox:hover {
+            background: #2d3436;
+            border-left-color: #b8c480;
+        }
+        .checkbox input[type="checkbox"]:checked + label {
+            color: #b8c480;
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+        .checkbox label {
+            flex: 1;
+            cursor: pointer;
+            user-select: none;
         }
         input[type="checkbox"] {
             width: 20px;
@@ -281,6 +296,48 @@
             transform: scale(1.1);
         }
 
+        /* WEEK CONTENT STYLING */
+        .week-content {
+            background: #2d3436;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #566e3d;
+            margin: 20px 0;
+        }
+        .week-content h3 {
+            background: linear-gradient(135deg, #566e3d 0%, #7d8e63 100%);
+            color: #fff;
+            padding: 15px 20px;
+            margin: -25px -25px 20px -25px;
+            border-radius: 8px 8px 0 0;
+            font-size: 1.2em;
+        }
+        .week-content h4 {
+            color: #b8c480;
+            border-bottom: 2px solid #566e3d;
+            padding-bottom: 8px;
+            margin-top: 25px;
+        }
+        .day-section {
+            background: #1a1a1a;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #7d8e63;
+        }
+        .day-section h5 {
+            color: #b8c480;
+            margin: 0 0 10px 0;
+            font-size: 1.1em;
+        }
+        .week-progress {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
         /* MOBILE IMPROVEMENTS */
         @media (max-width: 768px) {
             body {
@@ -294,6 +351,14 @@
             }
             .intro-card {
                 padding: 15px;
+            }
+            .week-content {
+                padding: 15px;
+            }
+            .week-content h3 {
+                margin: -15px -15px 15px -15px;
+                padding: 12px 15px;
+                font-size: 1em;
             }
         }
     </style>
@@ -349,9 +414,9 @@
 
     <div class="tabs">
         <div class="tab active" onclick="showTab('analytics')" data-en="📊 Analytics" data-es="📊 Analítica">📊 Analytics</div>
-        <div class="tab" onclick="showTab('exercises')" data-en="📖 Exercises" data-es="📖 Ejercicios">📖 Exercises</div>
         <div class="tab" onclick="showTab('weekly')" data-en="📅 Weekly Plans" data-es="📅 Planes Semanales">📅 Weekly Plans</div>
         <div class="tab" onclick="showTab('calendar')" data-en="🗓️ Overview" data-es="🗓️ Resumen">🗓️ Overview</div>
+        <div class="tab" onclick="showTab('exercises')" data-en="📖 Exercises" data-es="📖 Ejercicios">📖 Exercises</div>
     </div>
 
     <!-- ANALYTICS TAB -->
@@ -622,15 +687,26 @@
 
     <!-- WEEKLY PLANS TAB -->
     <div id="weekly" class="content">
-        <h2>12-Week Training Plans with Checkboxes</h2>
+        <h2>📅 Your 12-Week Training Plan</h2>
 
-        <div class="note">
-            <strong>📋 How to use this:</strong><br>
-            • Each week has a complete daily checklist<br>
-            • Morning routine is EVERY DAY (even rest days)<br>
-            • Exercises progress week by week<br>
-            • Check off as you complete each item<br>
-            • Your progress saves automatically in your browser
+        <!-- START HERE GUIDE -->
+        <div class="success" style="border-left: 5px solid #b8c480; box-shadow: 0 4px 6px rgba(184, 196, 128, 0.3);">
+            <h3 style="margin-top: 0; color: #b8c480; font-size: 1.3em;">👉 START HERE</h3>
+            <ol style="line-height: 1.8; font-size: 1.05em;">
+                <li><strong>Pick your current week</strong> using the buttons below (start with Week 1 if new)</li>
+                <li><strong>Do the morning routine daily</strong> - check it off in the tracker above each week</li>
+                <li><strong>Follow the weekly workout schedule</strong> - each day has specific exercises</li>
+                <li><strong>Check off items as you complete them</strong> - progress saves automatically!</li>
+                <li><strong>Track your progress</strong> in the Analytics tab to stay motivated</li>
+            </ol>
+        </div>
+
+        <div class="note" style="margin-top: 20px;">
+            <strong>💡 Quick Tips:</strong><br>
+            • Morning routine = 6 exercises, takes ~10 minutes<br>
+            • Training days = specific workouts for that day<br>
+            • Rest days = still do morning routine for consistency<br>
+            • Check the Exercises tab for detailed instructions on any exercise
         </div>
 
         <!-- MORNING ROUTINE CONSISTENCY TRACKER -->
@@ -697,19 +773,25 @@
         </div>
 
         <!-- Week selector buttons -->
-        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
-            <button class="tab" onclick="showWeek(1)" id="week-btn-1">Week 1</button>
-            <button class="tab" onclick="showWeek(2)" id="week-btn-2">Week 2</button>
-            <button class="tab" onclick="showWeek(3)" id="week-btn-3">Week 3</button>
-            <button class="tab" onclick="showWeek(4)" id="week-btn-4">Week 4</button>
-            <button class="tab" onclick="showWeek(5)" id="week-btn-5">Week 5</button>
-            <button class="tab" onclick="showWeek(6)" id="week-btn-6">Week 6</button>
-            <button class="tab" onclick="showWeek(7)" id="week-btn-7">Week 7</button>
-            <button class="tab" onclick="showWeek(8)" id="week-btn-8">Week 8</button>
-            <button class="tab" onclick="showWeek(9)" id="week-btn-9">Week 9</button>
-            <button class="tab" onclick="showWeek(10)" id="week-btn-10">Week 10</button>
-            <button class="tab" onclick="showWeek(11)" id="week-btn-11">Week 11</button>
-            <button class="tab" onclick="showWeek(12)" id="week-btn-12">Week 12</button>
+        <div style="margin: 30px 0;">
+            <h3 style="color: #b8c480; margin-bottom: 15px;">📆 Select Your Week:</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px;">
+                <button class="tab active" onclick="showWeek(1)" id="week-btn-1" style="position: relative;">
+                    Week 1
+                    <span style="display: block; font-size: 0.7em; color: #b8c480;">← Start here!</span>
+                </button>
+                <button class="tab" onclick="showWeek(2)" id="week-btn-2">Week 2</button>
+                <button class="tab" onclick="showWeek(3)" id="week-btn-3">Week 3</button>
+                <button class="tab" onclick="showWeek(4)" id="week-btn-4">Week 4</button>
+                <button class="tab" onclick="showWeek(5)" id="week-btn-5">Week 5</button>
+                <button class="tab" onclick="showWeek(6)" id="week-btn-6">Week 6</button>
+                <button class="tab" onclick="showWeek(7)" id="week-btn-7">Week 7</button>
+                <button class="tab" onclick="showWeek(8)" id="week-btn-8">Week 8</button>
+                <button class="tab" onclick="showWeek(9)" id="week-btn-9">Week 9</button>
+                <button class="tab" onclick="showWeek(10)" id="week-btn-10">Week 10</button>
+                <button class="tab" onclick="showWeek(11)" id="week-btn-11">Week 11</button>
+                <button class="tab" onclick="showWeek(12)" id="week-btn-12">Week 12</button>
+            </div>
         </div>
 
         <!-- WEEK 1: Oct 14-20 -->
